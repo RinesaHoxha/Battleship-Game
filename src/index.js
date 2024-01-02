@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import { WelcomeScreen } from './WelcomeScreen';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import './css/style.css';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export const App = () => {
+  const [appState, setAppState] = useState('welcome'); // play or welcome
+
+  const startPlay = () => {
+    setAppState('play');
+  };
+
+  // Renders either Welcome Screen or Game
+  return (
+    <React.Fragment>
+      <Header />
+      {appState === 'play' ? <Game /> : <WelcomeScreen startPlay={startPlay} />}
+      <Footer />
+    </React.Fragment>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
