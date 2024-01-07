@@ -2,6 +2,16 @@ export const BOARD_ROWS = 10;
 export const BOARD_COLUMNS = 10;
 export const BOARD = BOARD_COLUMNS * BOARD_ROWS;
 
+
+export const isWithinBounds = (entity) => {
+    return (
+      (entity.orientation === 'vertical' &&
+        entity.position.y + entity.length <= BOARD_ROWS) ||
+      (entity.orientation === 'horizontal' &&
+        entity.position.x + entity.length <= BOARD_COLUMNS)
+    );
+  };
+
 export const putEntityInLayout = (oldLayout, entity, type) => {
     let newLayout = oldLayout.slice();
   
