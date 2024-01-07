@@ -1,5 +1,12 @@
 /* Main*/
 
+body {
+  background-color: var(--oc-white);
+  margin: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
 body,
 main {
   display: flex;
@@ -17,6 +24,20 @@ section {
 
 main {
   max-width: 35em;
+}
+
+.tip-box-title {
+  font-size: 22px;
+  text-transform: uppercase;
+  color: var(--oc-red-7);
+}
+
+.player-tip,
+#firing-info {
+  margin-top: var(--small-space);
+  font-family: var(--regular);
+  text-transform: none;
+  color: var(--oc-gray-7);
 }
 
 
