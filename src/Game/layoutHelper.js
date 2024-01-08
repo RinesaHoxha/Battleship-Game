@@ -158,3 +158,23 @@ export const updateSunkShips = (currentHits, opponentShips) => {
 
   return shipsWithSunkFlag;
 };
+
+
+  export const generateRandomOrientation = () => {
+    let randomNumber = Math.floor(Math.random() * Math.floor(2));
+  
+    return randomNumber === 1 ? 'vertical' : 'horizontal';
+  };
+  
+  export const generateRandomIndex = (value = BOARD) => {
+    return Math.floor(Math.random() * Math.floor(value));
+  };
+
+  export const placeCompShipInLayout = (ship, compLayout) => {
+    let newCompLayout = compLayout.slice();
+  
+    entityIndices2(ship).forEach((idx) => {
+      newCompLayout[idx] = SQUARE_STATE.ship;
+    });
+    return newCompLayout;
+  };
