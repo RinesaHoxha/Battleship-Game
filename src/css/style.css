@@ -61,6 +61,26 @@ p {
   margin: 0;
 }
 
+h1 {
+  font-family: var(--header);
+  text-transform: uppercase;
+}
+
+/* Headings used in board and tip box */
+
+h2 {
+  color: var(--oc-red-7);
+  font-family: var(--headlines);
+}
+
+/* Regular text used in subtitle and tips */
+
+p {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 
 /* footer code */
 
