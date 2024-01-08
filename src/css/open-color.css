@@ -59,6 +59,31 @@ light theme
   --oc-cyan-9: #0b7285;
   --oc-cyan-9-rgb: 11, 114, 133;
 
+ /*  Blue
+ *  ─────────────────────────────────── */
+
+  --oc-blue-0: #e7f5ff;
+  --oc-blue-0-rgb: 231, 245, 255;
+  --oc-blue-1: #d0ebff;
+  --oc-blue-1-rgb: 208, 235, 255;
+  --oc-blue-2: #a5d8ff;
+  --oc-blue-2-rgb: 165, 216, 255;
+  --oc-blue-3: #74c0fc;
+  --oc-blue-3-rgb: 116, 192, 252;
+  --oc-blue-4: #4dabf7;
+  --oc-blue-4-rgb: 77, 171, 247;
+  --oc-blue-5: #339af0;
+  --oc-blue-5-rgb: 51, 154, 240;
+  --oc-blue-6: #228be6;
+  --oc-blue-6-rgb: 34, 139, 230;
+  --oc-blue-7: #1c7ed6;
+  --oc-blue-7-rgb: 28, 126, 214;
+  --oc-blue-8: #1971c2;
+  --oc-blue-8-rgb: 25, 113, 194;
+  --oc-blue-9: #1864ab;
+  --oc-blue-9-rgb: 24, 100, 171;
+ 
+
  /*  Green
  *  ─────────────────────────────────── */
 
