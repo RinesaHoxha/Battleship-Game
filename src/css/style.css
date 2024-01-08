@@ -40,6 +40,27 @@ main {
   color: var(--oc-gray-7);
 }
 
+/* header css */
+header {
+  text-align: center;
+}
+
+h1 {
+  color: var(--oc-indigo-8);
+  font-size: 38px;
+}
+
+.subtitle {
+  font-size: 22px;
+  color: var(--oc-indigo-4);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
 
 /* footer code */
 
