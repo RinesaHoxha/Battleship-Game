@@ -1,3 +1,13 @@
+
+:root {
+ /*  General
+ *  ─────────────────────────────────── */
+
+  --oc-white: #ffffff;
+  --oc-white-rgb: 255, 255, 255;
+  --oc-black: #000000;
+  --oc-black-rgb: 0, 0, 0;
+
 /*
 light theme 
 */
@@ -216,3 +226,5 @@ light theme
  --oc-red-8-rgb: 224, 49, 49;
  --oc-red-9: #c92a2a;
  --oc-red-9-rgb: 201, 42, 42;
+
+ }
