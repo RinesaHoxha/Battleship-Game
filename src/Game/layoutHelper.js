@@ -45,7 +45,11 @@ export const putEntityInLayout = (oldLayout, entity, type) => {
     return newLayout;
   };
 
+  export const isPlaceFree = (entity, layout) => {
+  let shipIndices = entityIndices2(entity);
 
+  return shipIndices.every((idx) => layout[idx] === SQUARE_STATE.empty);
+ };
   export const calculateOverhang = (entity) =>
   Math.max(
     entity.orientation === 'vertical'
@@ -53,6 +57,25 @@ export const putEntityInLayout = (oldLayout, entity, type) => {
       : entity.position.x + entity.length - BOARD_COLUMNS,
     0
   );
+
+export const canBePlaced = (entity, layout) =>
+  isWithinBounds(entity) && isPlaceFree(entity, layout);
+
+// Generates layout and assigns each comp ship a random orientation and set of coordinates; returns all placed ships
+export const placeAllComputerShips = (computerShips) => {
+  let compLayout = generateEmptyLayout();
+
+  return computerShips.map((ship) => {
+    while (true) {
+      let decoratedShip = randomizeShipProps(ship);
+
+      if (canBePlaced(decoratedShip, compLayout)) {
+        compLayout = putEntityInLayout(compLayout, decoratedShip, SQUARE_STATE.ship);
+        return { ...decoratedShip, placed: true };
+      }
+    }
+  });
+};
 
 // Gets the neighboring squares to a successful computer hit probably useful for MCTS
 export const getNeighbors = (coords) => {
