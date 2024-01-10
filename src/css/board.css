@@ -1,6 +1,6 @@
 @import './open-color.css';
 
-/* board css styling  */
+/*board css styling*/
 
 .board {
   width: 400px;
@@ -20,3 +20,23 @@
   cursor: crosshair;
   transition: background-color 100ms ease-in-out;
 }
+
+/*option 1*/
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  /* Option 2 */
+  @keyframes shake {
+    from {
+      transform: translate(30%, 17%);
+    }
+  
+    to {
+      transform: translate(-30%, -17%);
+    }
+  }
