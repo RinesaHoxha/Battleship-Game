@@ -40,3 +40,53 @@
       transform: translate(-30%, -17%);
     }
   }
+
+/* SQUARE COLORS */
+
+/* Empty */
+.board .empty {
+    background-color: var(--oc-gray-1);
+  }
+  .board .empty:hover {
+    background-color: var(--oc-yellow-2);
+  }
+  
+  /* Ship */
+  
+  .board .ship {
+    background-color: var(--oc-indigo-5);
+    border: 1px solid var(--oc-indigo-6);
+  }
+  
+  .board .ship:hover {
+    background-color: var(--oc-indigo-9);
+  }
+  
+  /* Hit  */
+  
+  .board .hit {
+    background-color: var(--oc-red-8);
+    border: 1px solid var(--oc-red-9);
+  }
+  
+  /* Miss */
+  
+  .board .miss {
+    background-color: var(--oc-gray-4);
+    border: 1px solid var(--oc-gray-2);
+  }
+  
+  /* Sunk ship */
+  
+  .board .ship-sunk {
+    background-color: var(--oc-gray-9);
+    border: 1px solid var(--oc-gray-8);
+    animation: shake 50ms 6 alternate backwards;
+  }
+  
+  /* Forbidden square  */
+  
+  .board .forbidden {
+    background-color: var(--oc-red-2);
+    border: 1px solid var(--oc-red-3);
+  }
