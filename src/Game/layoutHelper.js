@@ -2,8 +2,70 @@ export const BOARD_ROWS = 10;
 export const BOARD_COLUMNS = 10;
 export const BOARD = BOARD_COLUMNS * BOARD_ROWS;
 
+export const SQUARE_STATE = {
+  empty: 'empty',
+  ship: 'ship',
+  hit: 'hit',
+  miss: 'miss',
+  ship_sunk: 'ship-sunk',
+  forbidden: 'forbidden',
+  awaiting: 'awaiting',
+};
 
+export const stateToClass = {
+  [SQUARE_STATE.empty]: 'empty',
+  [SQUARE_STATE.ship]: 'ship',
+  [SQUARE_STATE.hit]: 'hit',
+  [SQUARE_STATE.miss]: 'miss',
+  [SQUARE_STATE.ship_sunk]: 'ship-sunk',
+  [SQUARE_STATE.forbidden]: 'forbidden',
+  [SQUARE_STATE.awaiting]: 'awaiting',
+};
 
+// Returns an empty board
+export const generateEmptyLayout = () => {
+  return new Array(BOARD_ROWS * BOARD_COLUMNS).fill(SQUARE_STATE.empty);
+};
+// Returns the index of a clicked square from coordinates and viceversa
+export const coordsToIndex = (coordinates) => {
+  const { x, y } = coordinates;
+
+  return y * BOARD_ROWS + x;
+};
+
+export const indexToCoords = (index) => {
+  return {
+    x: index % BOARD_ROWS,
+    y: Math.floor(index / BOARD_ROWS),
+  };
+};
+// Returns the indices that entity would take up
+export const entityIndices = (entity) => {
+  let position = coordsToIndex(entity.position);
+
+  let indices = [];
+
+  for (let i = 0; i < entity.length; i++) {
+    indices.push(position);
+    position = entity.orientation === 'vertical' ? position + BOARD_ROWS : position + 1;
+  }
+
+  return indices;
+};
+
+// Alternative take
+export const entityIndices2 = (entity) => {
+  let indices = [];
+  for (let i = 0; i < entity.length; i++) {
+    const position =
+      entity.orientation === 'vertical'
+        ? coordsToIndex({ y: entity.position.y + i, x: entity.position.x })
+        : coordsToIndex({ y: entity.position.y, x: entity.position.x + i });
+    indices.push(position);
+  }
+
+  return indices;
+};
 export const isWithinBounds = (entity) => {
     return (
       (entity.orientation === 'vertical' &&
