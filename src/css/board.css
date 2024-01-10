@@ -1,0 +1,22 @@
+@import './open-color.css';
+
+/* board css styling  */
+
+.board {
+  width: 400px;
+  height: 400px;
+  border: 2px solid var(--oc-gray-4);
+  margin: 1em 2em 2em 1em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.board div {
+  width: 10%;
+  height: 10%;
+  box-sizing: border-box;
+  background: var(--oc-gray-1);
+  border: 1px solid var(--oc-gray-2);
+  cursor: crosshair;
+  transition: background-color 100ms ease-in-out;
+}
