@@ -147,7 +147,7 @@ export const Game = () => {
       return;
     }
    // *** END GAME ***
-
+  };
   // Check if either player or computer ended the game
   const checkIfGameOver = () => {
     let successfulPlayerHits = hitsByPlayer.filter((hit) => hit.type === 'hit').length;
