@@ -90,17 +90,8 @@ export const Game = () => {
       });
     }
   };
-  
-    return (//everything needed to update game view here
-        <React.Fragment>
-            <GameView>
-            
-            </GameView>
-        </React.Fragment>
-    )
-}
 
-  // *** END GAME ***
+   // *** END GAME ***
 
   // Check if either player or computer ended the game
   const checkIfGameOver = () => {
@@ -136,4 +127,14 @@ export const Game = () => {
     setHitsByPlayer([]);
     setHitsByComputer([]);
   };
+
+  
+    return (//everything needed to update game view here
+        <React.Fragment>
+            <GameView>
+            
+            </GameView>
+        </React.Fragment>
+    )
+}
 
