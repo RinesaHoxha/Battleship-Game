@@ -91,6 +91,61 @@ export const Game = () => {
     }
   };
 
+  const startTurn = () => {
+    generateComputerShips();
+    setGameState('player-turn');
+  };
+
+  const changeTurn = () => {
+    setGameState((oldGameState) =>
+      oldGameState === 'player-turn' ? 'computer-turn' : 'player-turn'
+    );
+  };
+
+  const generateComputerShips = () => {
+    let placedComputerShips = placeAllComputerShips(AVAILABLE_SHIPS.slice());
+    setComputerShips(placedComputerShips);
+  };
+  
+ const computerFire = (index, layout) => {
+    let computerHits;
+
+    if (layout[index] === 'ship') {
+      computerHits = [
+        ...hitsByComputer,
+        {
+          position: indexToCoords(index),
+          type: SQUARE_STATE.hit,
+        },
+      ];
+    }
+    if (layout[index] === 'empty') {
+      computerHits = [
+        ...hitsByComputer,
+        {
+          position: indexToCoords(index),
+          type: SQUARE_STATE.miss,
+        },
+      ];
+    }
+    const sunkShips = updateSunkShips(computerHits, placedShips);
+    const sunkShipsAfter = sunkShips.filter((ship) => ship.sunk).length;
+    const sunkShipsBefore = placedShips.filter((ship) => ship.sunk).length;
+    if (sunkShipsAfter > sunkShipsBefore) {
+      playSound('sunk');
+    }
+    setPlacedShips(sunkShips);
+    setHitsByComputer(computerHits);
+  };
+
+   
+// Change to computer turn, check if game over and stop if yes; if not fire into an eligible square
+  const handleComputerTurn = () => {
+    changeTurn();
+
+    if (checkIfGameOver()) {
+      return;
+    }
    // *** END GAME ***
 
   // Check if either player or computer ended the game
