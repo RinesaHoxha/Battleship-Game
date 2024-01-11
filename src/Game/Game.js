@@ -1,4 +1,16 @@
 import React, { useState, useRef } from 'react';
+import { GameView } from './GameView';
+import {
+  placeAllComputerShips,
+  SQUARE_STATE,
+  indexToCoords,
+  putEntityInLayout,
+  generateEmptyLayout,
+  generateRandomIndex,
+  getNeighbors,
+  updateSunkShips,
+  coordsToIndex,
+} from './layoutHelpers';
 
 const AVAILABLE_SHIPS = [
   {
@@ -29,8 +41,17 @@ const AVAILABLE_SHIPS = [
 ];
 
 export const Game = () => {
-    const [gameState, setGameState] = useState('placement');
-    const [winner, setWinner] = useState(null);
+  const [gameState, setGameState] = useState('placement');
+  const [winner, setWinner] = useState(null);
+
+    
+  const [currentlyPlacing, setCurrentlyPlacing] = useState(null);
+  const [placedShips, setPlacedShips] = useState([]);
+  const [availableShips, setAvailableShips] = useState(AVAILABLE_SHIPS);
+  const [computerShips, setComputerShips] = useState([]);
+  const [hitsByPlayer, setHitsByPlayer] = useState([]);
+  const [hitsByComputer, setHitsByComputer] = useState([]);
+
 
   // *** PLAYER ***
   const selectShip = (shipName) => {
