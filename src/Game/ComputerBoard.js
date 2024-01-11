@@ -31,6 +31,15 @@ export const ComputerBoard = ({
         putEntityInLayout(prevLayout, currentHit, currentHit.type),
       compLayout
     );
+
+    compLayout = computerShips.reduce(
+      (prevLayout, currentShip) =>
+        currentShip.sunk
+          ? putEntityInLayout(prevLayout, currentShip, SQUARE_STATE.ship_sunk)
+          : prevLayout,
+      compLayout
+    );
+  
     // Check whats at the square and decide what next
     const fireTorpedo = (index) => {
       if (compLayout[index] === 'ship') {
