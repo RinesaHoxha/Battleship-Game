@@ -78,3 +78,41 @@ export const Game = () => {
         </React.Fragment>
     )
 }
+
+  // *** END GAME ***
+
+  // Check if either player or computer ended the game
+  const checkIfGameOver = () => {
+    let successfulPlayerHits = hitsByPlayer.filter((hit) => hit.type === 'hit').length;
+    let successfulComputerHits = hitsByComputer.filter((hit) => hit.type === 'hit')
+      .length;
+
+    if (successfulComputerHits === 17 || successfulPlayerHits === 17) {
+      setGameState('game-over');
+
+      if (successfulComputerHits === 17) {
+        setWinner('computer');
+        playSound('lose');
+      }
+      if (successfulPlayerHits === 17) {
+        setWinner('player');
+        playSound('win');
+      }
+
+      return true;
+    }
+
+    return false;
+  };
+
+  const startAgain = () => {
+    setGameState('placement');
+    setWinner(null);
+    setCurrentlyPlacing(null);
+    setPlacedShips([]);
+    setAvailableShips(AVAILABLE_SHIPS);
+    setComputerShips([]);
+    setHitsByPlayer([]);
+    setHitsByComputer([]);
+  };
+
