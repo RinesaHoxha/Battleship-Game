@@ -208,7 +208,7 @@ export const Game = () => {
         winner={winner}
         setComputerShips={setComputerShips}
         playSound={playSound}
-      />
+      
             </GameView>
         </React.Fragment>
     )
