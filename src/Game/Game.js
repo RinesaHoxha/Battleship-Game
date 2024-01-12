@@ -187,7 +187,28 @@ export const Game = () => {
     return (//everything needed to update game view here
         <React.Fragment>
             <GameView>
-            
+            availableShips={availableShips}
+        selectShip={selectShip}
+        currentlyPlacing={currentlyPlacing}
+        setCurrentlyPlacing={setCurrentlyPlacing}
+        rotateShip={rotateShip}
+        placeShip={placeShip}
+        placedShips={placedShips}
+        startTurn={startTurn}
+        computerShips={computerShips}
+        gameState={gameState}
+        changeTurn={changeTurn}
+        hitsByPlayer={hitsByPlayer}
+        setHitsByPlayer={setHitsByPlayer}
+        hitsByComputer={hitsByComputer}
+        setHitsByComputer={setHitsByComputer}
+        handleComputerTurn={handleComputerTurn}
+        checkIfGameOver={checkIfGameOver}
+        startAgain={startAgain}
+        winner={winner}
+        setComputerShips={setComputerShips}
+        playSound={playSound}
+      />
             </GameView>
         </React.Fragment>
     )
