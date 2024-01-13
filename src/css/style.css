@@ -1,7 +1,6 @@
 @import './open-color.css';
 @import './board.css';
 @import './replicas.css';
-/* Main*/
 
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Lexend+Tera&display=swap');
@@ -13,6 +12,8 @@
 /* font-family: 'Asul', sans-serif;
 font-family: 'Chivo', sans-serif; */
 
+/* Main*/
+
 
 body {
   background-color: var(--oc-white);
@@ -21,8 +22,7 @@ body {
   box-sizing: border-box;
 }
 
-body,
-main {
+body, main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,8 +30,7 @@ main {
   padding: var(--small-space);
 }
 
-main,
-section {
+main, section {
   margin: var(--medium-space);
   text-align: center;
 }
@@ -69,9 +68,7 @@ h1 {
   color: var(--oc-indigo-4);
 }
 
-h1,
-h2,
-p {
+h1,h2, p {
   margin: 0;
 }
 
@@ -98,8 +95,7 @@ p {
 
 /* footer code */
 
-footer,
-footer a {
+footer, footer a {
   color: var(--oc-gray-7);
   text-align: center;
   text-decoration: none;
