@@ -146,9 +146,57 @@ export const Game = () => {
     if (checkIfGameOver()) {
       return;
     }
-   // *** END GAME ***
-  };
+     // Recreate layout to get eligible squares
+    let layout = placedShips.reduce(
+      (prevLayout, currentShip) =>
+        putEntityInLayout(prevLayout, currentShip, SQUARE_STATE.ship),
+      generateEmptyLayout()
+    );
 
+    layout = hitsByComputer.reduce(
+      (prevLayout, currentHit) =>
+        putEntityInLayout(prevLayout, currentHit, currentHit.type),
+      layout
+    );
+
+    layout = placedShips.reduce(
+      (prevLayout, currentShip) =>
+        currentShip.sunk
+          ? putEntityInLayout(prevLayout, currentShip, SQUARE_STATE.ship_sunk)
+          : prevLayout,
+      layout
+    );
+
+    let successfulComputerHits = hitsByComputer.filter((hit) => hit.type === 'hit');
+
+    let nonSunkComputerHits = successfulComputerHits.filter((hit) => {
+      const hitIndex = coordsToIndex(hit.position);
+      return layout[hitIndex] === 'hit';
+    });
+
+    let potentialTargets = nonSunkComputerHits
+      .flatMap((hit) => getNeighbors(hit.position))
+      .filter((idx) => layout[idx] === 'empty' || layout[idx] === 'ship');
+
+    // Until there's a successful hit
+    if (potentialTargets.length === 0) {
+      let layoutIndices = layout.map((item, idx) => idx);
+      potentialTargets = layoutIndices.filter(
+        (index) => layout[index] === 'ship' || layout[index] === 'empty'
+      );
+    }
+      let randomIndex = generateRandomIndex(potentialTargets.length);
+
+    let target = potentialTargets[randomIndex];
+
+    setTimeout(() => {
+      computerFire(target, layout);
+      changeTurn();
+    }, 300);
+  };
+  
+   // *** END GAME ***
+  
   // Check if either player or computer ended the game
   const checkIfGameOver = () => {
     let successfulPlayerHits = hitsByPlayer.filter((hit) => hit.type === 'hit').length;
