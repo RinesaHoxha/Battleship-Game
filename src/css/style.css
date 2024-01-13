@@ -3,6 +3,17 @@
 @import './replicas.css';
 /* Main*/
 
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Lexend+Tera&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+/*new fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Asul&family=Chivo:wght@300;400;700;900&family=Libre+Franklin&display=swap');
+/* font-family: 'Asul', sans-serif;
+font-family: 'Chivo', sans-serif; */
+
+
 body {
   background-color: var(--oc-white);
   margin: 0;
