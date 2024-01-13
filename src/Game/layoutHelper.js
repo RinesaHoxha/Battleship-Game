@@ -242,4 +242,11 @@ export const updateSunkShips = (currentHits, opponentShips) => {
   };
 
   export const randomizeShipProps = (ship) => {
-    let randomStartIndex = generateRandomIndex(); }
+    let randomStartIndex = generateRandomIndex(); 
+
+    return {
+        ...ship,
+        position: indexToCoords(randomStartIndex),
+        orientation: generateRandomOrientation(),
+      };
+    };
