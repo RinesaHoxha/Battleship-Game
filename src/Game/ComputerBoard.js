@@ -6,7 +6,7 @@ import {
   SQUARE_STATE,
   indexToCoords,
   updateSunkShips,
-} from './layoutHelpers';
+} from './layoutHelper';
 
 export const ComputerBoard = ({
     computerShips,

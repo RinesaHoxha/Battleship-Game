@@ -10,7 +10,7 @@ import {
   getNeighbors,
   updateSunkShips,
   coordsToIndex,
-} from './layoutHelpers';
+} from './layoutHelper';
 
 const AVAILABLE_SHIPS = [
   {
@@ -263,50 +263,45 @@ export const Game = () => {
     }
   };
 
-  return (//everything needed to update game view here
-        <React.Fragment>
-           <audio
+  return (
+    <React.Fragment>
+      <audio
         ref={sunkSoundRef}
         src="/sounds/ship_sunk.wav"
         className="clip"
-        preload="auto"/>
+        preload="auto"
+      />
       <audio
         ref={clickSoundRef}
         src="/sounds/click.wav"
         className="clip"
-        preload="auto"/>
-      <audio ref={lossSoundRef} 
-      src="/sounds/lose.wav" 
-      className="clip" 
-      preload="auto"/>
-      <audio ref={winSoundRef} 
-      src="/sounds/win.wav" 
-      className="clip" 
-      preload="auto"/>
-          <GameView>
-            availableShips={availableShips}
-            selectShip={selectShip}
-            currentlyPlacing={currentlyPlacing}
-            setCurrentlyPlacing={setCurrentlyPlacing}
-            rotateShip={rotateShip}
-            placeShip={placeShip}
-            placedShips={placedShips}
-            startTurn={startTurn}
-            computerShips={computerShips}
-            gameState={gameState}
-            changeTurn={changeTurn}
-            hitsByPlayer={hitsByPlayer}
-            setHitsByPlayer={setHitsByPlayer}
-            hitsByComputer={hitsByComputer}
-            setHitsByComputer={setHitsByComputer}
-            handleComputerTurn={handleComputerTurn}
-            checkIfGameOver={checkIfGameOver}
-            startAgain={startAgain}
-            winner={winner}
-            setComputerShips={setComputerShips}
-            playSound={playSound}
-          </GameView>
-        </React.Fragment>
-    );
+        preload="auto"
+      />
+      <audio ref={lossSoundRef} src="/sounds/lose.wav" className="clip" preload="auto" />
+      <audio ref={winSoundRef} src="/sounds/win.wav" className="clip" preload="auto" />
+      <GameView
+        availableShips={availableShips}
+        selectShip={selectShip}
+        currentlyPlacing={currentlyPlacing}
+        setCurrentlyPlacing={setCurrentlyPlacing}
+        rotateShip={rotateShip}
+        placeShip={placeShip}
+        placedShips={placedShips}
+        startTurn={startTurn}
+        computerShips={computerShips}
+        gameState={gameState}
+        changeTurn={changeTurn}
+        hitsByPlayer={hitsByPlayer}
+        setHitsByPlayer={setHitsByPlayer}
+        hitsByComputer={hitsByComputer}
+        setHitsByComputer={setHitsByComputer}
+        handleComputerTurn={handleComputerTurn}
+        checkIfGameOver={checkIfGameOver}
+        startAgain={startAgain}
+        winner={winner}
+        setComputerShips={setComputerShips}
+        playSound={playSound}
+      />
+    </React.Fragment>
+  );
 };
-
