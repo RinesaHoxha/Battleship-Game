@@ -240,3 +240,6 @@ export const updateSunkShips = (currentHits, opponentShips) => {
     });
     return newCompLayout;
   };
+
+  export const randomizeShipProps = (ship) => {
+    let randomStartIndex = generateRandomIndex(); }
