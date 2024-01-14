@@ -6,7 +6,7 @@
   --medium-space: 2em;
 }
 
-/* REPLICAS  */
+
 
 #replica-fleet {
   padding: var(--small-space);
@@ -50,4 +50,43 @@
 
 .placing:hover {
   background-color: var(--oc-indigo-2);
+}
+
+
+.replica-title {
+  font-size: 14px;
+  text-transform: capitalize;
+  font-family: 'Libre Franklin', sans-serif;
+  color: var(--oc-white);
+}
+
+.small-square {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--oc-yellow-5);
+  background-color: var(--oc-yellow-4);
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 5px;
+}
+
+
+@media screen and (max-width: 768px) {
+  #replica-ships {
+    max-width: 400px;
+    height: 250px;
+  }
+}
+
+.player-title {
+  color: var(--oc-red-7);
+  text-align: center;
 }
