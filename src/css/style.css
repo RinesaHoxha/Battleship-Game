@@ -88,7 +88,9 @@ main {
   margin: var(--small-space);
 }
 
-
+#game-over {
+  font-size: 30px;
+}
 
 
 /* header css */
