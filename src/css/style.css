@@ -14,6 +14,13 @@ font-family: 'Chivo', sans-serif; */
 
 /* Main*/
 
+:root {
+  --regular: 'Libre Franklin', sans-serif;
+  --headlines: 'Asul', sans-serif;
+  --header: 'Chivo', sans-serif;
+  --small-space: 1em;
+  --medium-space: 2em;
+}
 
 body {
   background-color: var(--oc-white);
@@ -39,19 +46,50 @@ main {
   max-width: 35em;
 }
 
+#game-screen {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/*box containing ships and tips */
+#available-ships, #player-tips {
+  width: 200px;
+  max-height: 500px;
+  padding: var(--small-space);
+  font-family: var(--headlines);
+  text-align: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .tip-box-title {
   font-size: 22px;
   text-transform: uppercase;
   color: var(--oc-red-7);
 }
 
-.player-tip,
-#firing-info {
+.player-tip, #firing-info {
   margin-top: var(--small-space);
   font-family: var(--regular);
   text-transform: none;
   color: var(--oc-gray-7);
 }
+
+.restart {
+  color: var(--oc-red-7);
+  font-family: var(--regular);
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: underline;
+  margin: var(--small-space);
+}
+
+
+
 
 /* header css */
 header {
