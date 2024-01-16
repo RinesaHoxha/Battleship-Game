@@ -59,3 +59,24 @@ export const getAllPossibleMoves = (informationGrid) => {
     return possibleMoves;
 };
 
+export const backPropagate = (node, win) => {
+    if(win) { // I'm not inverting the booleans
+        node.plays += 1;
+        node.wins += 1;
+        chancesGrid[node.move] += 1;
+    }
+    if (node.parent != null) {
+        backPropagate(node.parent, win);
+    }
+};
+export const simulateGamePlayForNode = (node) => {
+    let winnerPossibleMoves = getAllPossibleMoves(node.aiGrid);
+    let winnerMove = winnerPossibleMoves[Math.floor(Math.random() * winnerPossibleMoves.length - 1)];
+    let hasHit = node.playNextMove(winnerMove);// to check if it won the move
+
+    if (hasHit) return true;
+
+    return simulateGamePlayForNode(node);
+    //send help?
+};
+
