@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { WelcomeScreen } from './WelcomeScreen';
+import { Game } from './Game/Game.js';
+import { Header } from './Header';
+import { Footer } from './Footer';
 
 import './css/style.css';
 

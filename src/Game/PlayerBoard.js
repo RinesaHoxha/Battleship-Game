@@ -7,7 +7,7 @@ import {
   indexToCoords,
   calculateOverhang,
   canBePlaced,
-} from './layoutHelpers';
+} from './layoutHelper';
 
 export const PlayerBoard = ({
   currentlyPlacing,
