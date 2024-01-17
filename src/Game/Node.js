@@ -2,7 +2,7 @@ import {
     generateEmptyLayout,
     SQUARE_STATE,
     coordsToIndex,
-  } from './layoutHelpers';
+  } from './layoutHelper';
 
 class Node {
     constructor(parent = null, move = null, aiGrid = generateEmptyLayout(), playerGrid = generateEmptyLayout(), children = []) {

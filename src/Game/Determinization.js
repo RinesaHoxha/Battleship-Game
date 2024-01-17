@@ -6,7 +6,7 @@ import {
     putEntityInLayout,
     canBePlaced,
     indexToCoords,
-  } from './layoutHelpers';
+  } from './layoutHelper';
   
   import {
     AVAILABLE_SHIPS,

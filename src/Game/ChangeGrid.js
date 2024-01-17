@@ -1,20 +1,9 @@
 import {
-    generateEmptyLayout,
-    SQUARE_STATE,
     BOARD_ROWS,
     BOARD_COLUMNS,
-    indexToCoords,
-    putEntityInLayout,
-    generateRandomIndex,
-    getNeighbors,
-    updateSunkShips,
     coordsToIndex,
-  } from './layoutHelpers';
+} from './layoutHelper';
 
-import {
-    placedShips,
-    AVAILABLE_SHIPS,
-} from './Game';
 
 
 export const getHighestValue = (grid) => {

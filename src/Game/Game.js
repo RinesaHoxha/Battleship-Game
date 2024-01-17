@@ -12,7 +12,13 @@ import {
   coordsToIndex,
 } from './layoutHelper';
 
-const AVAILABLE_SHIPS = [
+import {
+  selectBestFieldToShoot,
+} from './MCTS';
+
+import Node from './Node';
+
+export const AVAILABLE_SHIPS = [
   {
     name: 'carrier',
     length: 5,
@@ -128,12 +134,18 @@ export const Game = () => {
         },
       ];
     }
+   
+    if (typeof(computerHits) === 'undefined') {
+      console.log("broken hits:", layout,  index, computerHits);
+      // return;
+    }
     const sunkShips = updateSunkShips(computerHits, placedShips);
     const sunkShipsAfter = sunkShips.filter((ship) => ship.sunk).length;
     const sunkShipsBefore = placedShips.filter((ship) => ship.sunk).length;
     if (sunkShipsAfter > sunkShipsBefore) {
       playSound('sunk');
     }
+
     setPlacedShips(sunkShips);
     setHitsByComputer(computerHits);
   };
@@ -146,7 +158,7 @@ export const Game = () => {
     if (checkIfGameOver()) {
       return;
     }
-     // Recreate layout to get eligible squares
+
     let layout = placedShips.reduce(
       (prevLayout, currentShip) =>
         putEntityInLayout(prevLayout, currentShip, SQUARE_STATE.ship),
@@ -177,23 +189,38 @@ export const Game = () => {
     let potentialTargets = nonSunkComputerHits
       .flatMap((hit) => getNeighbors(hit.position))
       .filter((idx) => layout[idx] === 'empty' || layout[idx] === 'ship');
+    
+    let target = null;
 
-    // Until there's a successful hit
-    if (potentialTargets.length === 0) {
-      let layoutIndices = layout.map((item, idx) => idx);
-      potentialTargets = layoutIndices.filter(
-        (index) => layout[index] === 'ship' || layout[index] === 'empty'
-      );
-    }
+    if (potentialTargets.length > 0) {
       let randomIndex = generateRandomIndex(potentialTargets.length);
-
-    let target = potentialTargets[randomIndex];
-
+      target = potentialTargets[randomIndex];
+      console.log("specified target: %d", target)
+    } else {
+      let constructedNode = new Node(null, null, layout.map(a => {return {...a}}), layout.map(a => {return {...a}}));
+      target = selectBestFieldToShoot(constructedNode, 100); // ye uh. takes too long?? or maybe I made an infinite loop
+      while(findTargetInComputerHits(target)) {
+        target = selectBestFieldToShoot(constructedNode, 100);
+      }
+      console.log("target acquired: %d", target);
+    }
+    
     setTimeout(() => {
       computerFire(target, layout);
       changeTurn();
     }, 300);
   };
+
+  const findTargetInComputerHits = (target) => {
+    let foundTarget = false;
+    for(let i = 0; i < hitsByComputer.length; i++) {
+      if (coordsToIndex(hitsByComputer[i].position) === target) {
+        foundTarget = true;
+        break;
+      }
+    }
+    return foundTarget;
+  }
   
    // *** END GAME ***
   
