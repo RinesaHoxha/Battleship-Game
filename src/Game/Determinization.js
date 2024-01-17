@@ -88,7 +88,7 @@ import {
   };
   
   export const makePossibleDeterminization = (informationGrid, depth = 0) => {
-    const MAX_DEPTH = 20; 
+    const MAX_DEPTH = 50; 
     if (depth > MAX_DEPTH) {
       //return informationGrid; //cheating ai
       return makeRandomDeterminization(informationGrid);// duct tape fix
@@ -115,7 +115,7 @@ import {
     const endTime = new Date();
     const timePassed = endTime.getTime() - startTime.getTime(); // is in ms
   
-    if (timePassed > 500) {
+    if (timePassed > 1000) {
       break;
     }
   }
