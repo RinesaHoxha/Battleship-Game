@@ -150,7 +150,6 @@ export const Game = () => {
     setHitsByComputer(computerHits);
   };
 
-   
 // Change to computer turn, check if game over and stop if yes; if not fire into an eligible square
   const handleComputerTurn = () => {
     changeTurn();

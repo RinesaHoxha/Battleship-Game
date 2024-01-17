@@ -1,7 +1,6 @@
 import {
     generateEmptyLayout,
     SQUARE_STATE,
-    coordsToIndex,
   } from './layoutHelper';
 
 class Node {

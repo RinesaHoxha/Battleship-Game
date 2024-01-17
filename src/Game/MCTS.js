@@ -32,7 +32,7 @@ export const setMaxIterations = (newMaxIterations) => {
 };
 
 export const uctValue = (totalPlaysParent, totalWinsCurrent, totalPlaysCurrent) => {
-    if (totalPlaysCurrent == 0) {
+    if (totalPlaysCurrent === 0) {
         return Number.MAX_SAFE_INTEGER;
     }
     return (totalWinsCurrent /  totalPlaysCurrent) + Math.sqrt(2 * Math.log(totalPlaysParent) / totalPlaysCurrent);
@@ -70,8 +70,8 @@ export const getAllPossibleMoves = (informationGrid) => {
     let possibleMoves = [];
 
     for(let index = 0; index < totalIndex; index ++) {
-        if(informationGrid[index] != SQUARE_STATE.hit && informationGrid[index] != SQUARE_STATE.ship_sunk
-            && informationGrid[index] != SQUARE_STATE.miss) {
+        if(informationGrid[index] !== SQUARE_STATE.hit && informationGrid[index] !== SQUARE_STATE.ship_sunk
+            && informationGrid[index] !== SQUARE_STATE.miss) {
             possibleMoves.push(index);
         }
     }
@@ -104,8 +104,8 @@ export const selectBestFieldToShoot = (node, iterations) => {
     setRoot(node);
     clearChanceGrid();
     
-    for(let iteration = 0; iteration <= iterations; iteration++) {
-        let allPossibleGrids = makeDeterminization(node.aiGrid, 50);
+    for(let iteration = 0; iteration <= maxIterations; iteration++) {
+        let allPossibleGrids = makeDeterminization(node.aiGrid, maxIterations);
         let mainNode = new Node(root, null, node.aiGrid, node.aiGrid, []);
         for(let possibleGrid of allPossibleGrids) {
             let newNode = new Node(mainNode, null, possibleGrid, possibleGrid, []);

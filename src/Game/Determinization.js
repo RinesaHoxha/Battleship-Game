@@ -71,10 +71,10 @@ import {
   while(availShips.length > 0) { // send help OMG
     let randomIndex = Math.floor(Math.random() * totalIndex);
   
-    if (possibleGrid[randomIndex] != SQUARE_STATE.ship) {
+    if (possibleGrid[randomIndex] !== SQUARE_STATE.ship) {
       let randomShipIndex = Math.floor(Math.random() * availShips.length);
       let ship = availShips[randomShipIndex];
-      let shipEntity = {...ship, position : indexToCoords(randomIndex), orientation : Math.floor(Math.random() * 2) == 1 ? 'horizontal' : 'vertical'};
+      let shipEntity = {...ship, position : indexToCoords(randomIndex), orientation : Math.floor(Math.random() * 2) === 1 ? 'horizontal' : 'vertical'};
   
       const canPlaceCurrentShip = canBePlaced(shipEntity, possibleGrid);
   
