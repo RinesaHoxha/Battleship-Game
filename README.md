@@ -21,9 +21,9 @@ You can access [the game](https://battleship-gr1.netlify.app/) or by installing 
 5. The game ends when all ships of one player are sunk.
 
 ## Game Rules
--Setup: Each player has a 10x10 grid where they secretly arrange a fleet of ships.
--Ships: Each fleet typically includes a mix of battleships, destroyers, submarines, and other vessels.
--Turns: Players take turns guessing grid coordinates to 'fire' at the opponent's fleet.
--Hits and Misses: If a ship occupies the coordinate, it's a hit; otherwise, it's a miss.
--Sinking Ships: A ship is sunk when all its segments are hit.
--Winning: The first player to sink all of the opponent's ships wins the game.
+- Setup: Each player has a 10x10 grid where they secretly arrange a fleet of ships.
+- Ships: Each fleet typically includes a mix of battleships, destroyers, submarines, and other vessels.
+- Turns: Players take turns guessing grid coordinates to 'fire' at the opponent's fleet.
+- Hits and Misses: If a ship occupies the coordinate, it's a hit; otherwise, it's a miss.
+- Sinking Ships: A ship is sunk when all its segments are hit.
+- Winning: The first player to sink all of the opponent's ships wins the game.
