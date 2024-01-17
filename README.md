@@ -1,8 +1,11 @@
-Battleship Game
+# Battleship AI with MCTS
 
-Problem Description: Implement a program to play the game Battleship.
-The program should take as input the Battleship board and output the moves to win the game.
-Requirements:The program should be able to play any valid Battleship board 
-Algorithm: Monte Carlo Tree Search
-Input: A Battleship board 
-Output: The moves to win the game
+## Introduction
+Battleship AI is an interactive game where players compete against a computer to win in the classic game of Battleship. Utilizing the Monte Carlo Tree Search (MCTS) algorithm, the computer makes strategic moves based on the current state of the game. Designed to work with a standard 10x10 Battleship board, our program is versatile and can scale to accommodate different board sizes.
+
+## Specifications
+This project is created with:
+- React: 17
+- JavaScript
+- Deployed using Netlify
+
