@@ -197,9 +197,9 @@ export const Game = () => {
       console.log("specified target: %d", target)
     } else {
       let constructedNode = new Node(null, null, layout.map(a => {return {...a}}), layout.map(a => {return {...a}}));
-      target = selectBestFieldToShoot(constructedNode, 100); // ye uh. takes too long?? or maybe I made an infinite loop
+      target = selectBestFieldToShoot(constructedNode, 50); // ye uh. takes too long?? or maybe I made an infinite loop
       while(findTargetInComputerHits(target)) {
-        target = selectBestFieldToShoot(constructedNode, 100);
+        target = selectBestFieldToShoot(constructedNode, 25);
       }
       console.log("target acquired: %d", target);
     }
